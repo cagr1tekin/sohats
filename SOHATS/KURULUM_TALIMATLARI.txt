@@ -1,0 +1,109 @@
+==========================================
+SOHATS - KURULUM TALİMATLARI
+==========================================
+
+Bu proje, Windows Forms ile geliştirilmiş bir hasta takip sistemidir.
+
+GEREKSİNİMLER:
+--------------
+1. Windows İşletim Sistemi (Windows 7 veya üzeri)
+2. Microsoft SQL Server (2012 veya üzeri)
+3. .NET Framework 4.8 (genellikle Windows 10/11'de yüklü gelir)
+
+KURULUM ADIMLARI:
+-----------------
+
+1. VERİTABANI KURULUMU:
+   
+   a) SQL Server Management Studio (SSMS) açın
+   
+   b) SOHATS_DB_Gercek.sql dosyasını açın ve çalıştırın
+      (Bu script veritabanını oluşturur ve tabloları hazırlar)
+   
+   c) İsteğe bağlı: Ornek_Veriler.sql dosyasını çalıştırarak 
+      örnek veriler ekleyebilirsiniz
+   
+   d) Veritabanı bağlantısını kontrol edin:
+      - SQL Server'ın çalıştığından emin olun
+      - Windows Authentication kullanılıyor
+      - Server adı: "." (local) veya kendi sunucu adınız
+
+2. UYGULAMA KURULUMU:
+   
+   a) SOHATS klasörünü bilgisayarınıza kopyalayın
+   
+   b) bin\Release klasöründeki SOHATS.exe dosyasını çalıştırın
+      (veya Visual Studio ile projeyi açıp çalıştırabilirsiniz)
+
+3. VERİTABANI BAĞLANTI AYARLARI:
+   
+   Eğer SQL Server'ınız farklı bir sunucuda ise veya 
+   farklı bir veritabanı adı kullanıyorsanız:
+   
+   a) SOHATS klasöründeki DBHelper.cs dosyasını açın
+   
+   b) connectionString değişkenini düzenleyin:
+      
+      Örnek (Local SQL Server):
+      "Server=.;Database=SOHATS;Integrated Security=True;"
+      
+      Örnek (Uzak Sunucu):
+      "Server=SUNUCU_ADI;Database=SOHATS;Integrated Security=True;"
+      
+      Örnek (SQL Server Authentication):
+      "Server=.;Database=SOHATS;User Id=kullanici;Password=sifre;"
+
+4. İLK GİRİŞ:
+   
+   Eğer Ornek_Veriler.sql dosyasını çalıştırdıysanız:
+   
+   Kullanıcı Adı: admin
+   Şifre: 1234
+   
+   (Yetki: admin - Tüm menülere erişim)
+   
+   Kullanıcı Adı: ayse
+   Şifre: 1234
+   
+   (Yetki: pers - Sınırlı erişim)
+
+SORUN GİDERME:
+---------------
+
+1. "Veritabanı hatası" alıyorsanız:
+   - SQL Server'ın çalıştığından emin olun
+   - Veritabanının oluşturulduğunu kontrol edin
+   - DBHelper.cs'deki connectionString'i kontrol edin
+
+2. ".NET Framework hatası" alıyorsanız:
+   - .NET Framework 4.8'in yüklü olduğundan emin olun
+   - Microsoft'tan indirip yükleyebilirsiniz
+
+3. "Dosya bulunamadı" hatası alıyorsanız:
+   - Tüm dosyaların aynı klasörde olduğundan emin olun
+   - Visual Studio ile projeyi yeniden derleyin
+
+PROJE YAPISI:
+-------------
+
+SOHATS/
+├── bin/
+│   ├── Debug/          (Geliştirme sürümü)
+│   └── Release/         (Yayın sürümü - SOHATS.exe burada)
+├── SOHATS_DB_Gercek.sql (Ana veritabanı scripti)
+├── Ornek_Veriler.sql    (Örnek veriler)
+├── *.cs                 (Kaynak kod dosyaları)
+└── KURULUM_TALIMATLARI.txt (Bu dosya)
+
+İLETİŞİM:
+---------
+Sorularınız için proje geliştiricisi ile iletişime geçin.
+
+==========================================
+Başarılar dileriz!
+==========================================
+
+
+
+
+

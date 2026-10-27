@@ -1,0 +1,13 @@
+bin/
+obj/
+.vs/
+x64/
+Debug/
+Release/
+*.user
+*.ipch
+*.pdb
+*.exe
+*.ilk
+*.obj
+*.mp4
